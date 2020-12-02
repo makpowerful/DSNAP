@@ -27,11 +27,10 @@ class LoginPage():
 
     def SelectDisSite(self,value):
         Site = Select(self.driver.find_element_by_id(self.drp_DisSite_id))
-        Site.select_by_visible_text(str(value))
+        Site.select_by_visible_text(value)
 
     def ClickGoto(self):
         self.driver.find_element_by_id(self.btn_goto_id).click()
 
     def ClickAccept(self):
         self.driver.find_element_by_css_selector(self.btn_accpet_css).click()
-

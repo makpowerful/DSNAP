@@ -1,5 +1,8 @@
 import random
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support import expected_conditions as EC
 
 class CreateHOH():
 
@@ -9,6 +12,8 @@ class CreateHOH():
     txt_DOB_xpath = "//div[@id='dateF1']/div/div/input"
     drp_Gender_xpath = "//div[@id='modal-content-id-1']/div[2]/div/div[8]/div/div/div/div/select"
     txt_SSN_xpath = "//div[@id='modal-content-id-1']/div[2]/div/div[9]/div/lightning-input/div/input"
+    btn_Save_xpath = "//button[3]"
+    mess_HOH_Succ_css = ".toastMessage"
 
     def __init__(self,driver):
         self.driver = driver
@@ -31,4 +36,12 @@ class CreateHOH():
 
     def EnterSSN(self,SSN):
         self.driver.find_element_by_xpath(self.txt_SSN_xpath).send_keys(SSN)
+
+    def Click_Save(self):
+        self.driver.find_element_by_xpath(self.btn_Save_xpath).click()
+
+    def ToastMess(self):
+        value = self.driver.find_element_by_css_selector(".toastMessage").text
+        return value
+
 

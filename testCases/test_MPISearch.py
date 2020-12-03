@@ -1,5 +1,6 @@
 import time
 from pageObject.LoginPO import LoginPage
+from pageObject.MPISearchPO import MPISearch
 from utilities import XLUtils
 from pageObject.CreateHOHPO import CreateHOH
 from utilities.readProperties import ReadConfig
@@ -102,6 +103,7 @@ class Test_CreateHH():
         self.CHH.Click_Save()
         time.sleep(5)
         self.logger.info("***** HH has been created successfully *****")
+        self.logger.info("***** Creation of HH *****")
         self.CHOH = CreateHOH(self.driver)
         self.CHOH.ClickNewHHMem()
         time.sleep(5)
@@ -124,15 +126,27 @@ class Test_CreateHH():
         time.sleep(1)
         self.CHOH.Click_Save()
         time.sleep(3)
-        self.TextMess = self.CHOH.ToastMess()
-
-        if self.TextMess == "The record has been Saved successfully.":
+        self.logger.info ("***** HOH has been added successfully *****")
+        self.logger.info("***** Performing MPI Search *****")
+        self.MPIS = MPISearch(self.driver)
+        self.MPIS.ClickHOH()
+        time.sleep(4)
+        self.MPIS.ClickLS()
+        time.sleep(4)
+        self.MPIS.ClickLS_Cancl()
+        time.sleep(3)
+        self.MPIS.ClickMPIS()
+        time.sleep(4)
+        self.MPIS.ClickMPIS_Cancl()
+        time.sleep(3)
+        self.TextMess = self.MPIS.ToastMess()
+        if self.TextMess == "SSN is validated with provided SSN number.":
             assert True
-            self.logger.info ("***** HOH has been added successfully *****")
+            self.logger.info ("***** MPI search has been done successfully *****")
             self.driver.close()
         else:
-            self.logger.info ("***** HOH has not been added successfully *****")
-            self.driver.save_screenshot("C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\Screenshots\\CreateHOH.png")
+            self.logger.info ("***** MPI search has not been done successfully *****")
+            self.driver.save_screenshot("C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\Screenshots\\MPISearch.png")
             self.driver.close()
             assert False
 

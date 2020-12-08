@@ -56,3 +56,37 @@ class ReadConfig():
         ResAddZip = config.get('common values','ResAddZip')
         return ResAddZip
 
+    @staticmethod
+    def getGender():
+        GenderValue = config.get('common values','GenderValue')
+        return GenderValue
+
+    @staticmethod
+    def getDocId():
+        DocIDvalue = config.get('common values','DocIDvalue')
+        return DocIDvalue
+
+    @staticmethod
+    def getVRQ1():
+        VRQ1 = config.get('common values','VRQ1')
+        return VRQ1
+
+    @staticmethod
+    def getVRQ2():
+        VRQ2 = config.get('common values','VRQ2')
+        return VRQ2
+
+    @staticmethod
+    def getDIDR():
+        DIDR = config.get('common values','DIDR')
+        return DIDR
+
+    @staticmethod
+    def getExp():
+        Exp = config.get('common values','Exp')
+        return Exp
+
+    @staticmethod
+    def getSign():
+        Sign = config.get('common values','Sign')
+        return Sign

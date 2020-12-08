@@ -1,7 +1,9 @@
 import time
 from pageObject.LoginPO import LoginPage
 from pageObject.MPISearchPO import MPISearch
+from pageObject.IntervieweePO import Interviewee
 from utilities import XLUtils
+from pageObject.N_DSNAPCasePO import N_DSNAPCase
 from pageObject.CreateHOHPO import CreateHOH
 from utilities.readProperties import ReadConfig
 from utilities.Customlogger import LogGen
@@ -11,7 +13,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import random
 
 
-class Test_MPISearch():
+class Test_CreateHH():
 
     url = ReadConfig.getApplicationurl()
     username = ReadConfig.getUsername()
@@ -25,11 +27,12 @@ class Test_MPISearch():
     ResAddCity = ReadConfig.getResAddCity()
     ResAddZip = ReadConfig.getResAddZip()
     path="C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\TestData\\DSNAP.xlsx"
-    SSN = random.randint(100000000,888888899)
-    GenderValue = 'Male'
+    SSN = random.randint(000000000,888888899)
+    GenderValue = ReadConfig.getGender()
+    DocIDvalue = ReadConfig.getDocId()
 
-    def test_CreateHH(self,setup):
-        self.logger.info("**************** Test HOH Creation ****************")
+    def test_N_DSNAPC(self,setup):
+        self.logger.info("**************** Test Interviewee Creation ****************")
         self.driver = setup
         self.driver.maximize_window()
         self.driver.get(self.url)
@@ -101,12 +104,12 @@ class Test_MPISearch():
         self.CHH.Click_AuthRep_N()
         time.sleep(1)
         self.CHH.Click_Save()
-        time.sleep(5)
+        time.sleep(8)
         self.logger.info("***** HH has been created successfully *****")
         self.logger.info("***** Creation of HOH *****")
         self.CHOH = CreateHOH(self.driver)
         self.CHOH.ClickNewHHMem()
-        time.sleep(5)
+        time.sleep(5.5)
 
         self.rows=XLUtils.getRowCount(self.path,'HOH details')
         for r in range(2,self.rows+1):
@@ -125,29 +128,73 @@ class Test_MPISearch():
         self.CHOH.EnterSSN(self.SSN)
         time.sleep(1)
         self.CHOH.Click_Save()
-        time.sleep(3)
+        time.sleep(5)
         self.logger.info ("***** HOH has been added successfully *****")
         self.logger.info("***** Performing MPI Search *****")
         self.MPIS = MPISearch(self.driver)
         self.MPIS.ClickHOH()
-        time.sleep(4)
+        time.sleep(4.5)
         self.MPIS.ClickLS()
-        time.sleep(4)
+        time.sleep(5)
         self.MPIS.ClickLS_Cancl()
-        time.sleep(3)
+        time.sleep(3.5)
         self.MPIS.ClickMPIS()
-        time.sleep(4)
+        time.sleep(5)
         self.MPIS.ClickMPIS_Cancl()
-        time.sleep(3)
-        self.TextMess = self.MPIS.ToastMess()
-        if self.TextMess == "SSN is validated with provided SSN number.":
+        time.sleep(3.5)
+        self.logger.info ("***** MPI search has been done successfully *****")
+        self.MPIS.ClickHOHBck()
+        time.sleep(4)
+        self.logger.info ("***** Adding Interviewee *****")
+        self.AI = Interviewee(self.driver)
+        self.AI.Click_MenuOptn()
+        time.sleep(2)
+        self.AI.Click_New_Inter()
+        time.sleep(4)
+        self.AI.Click_SearchMem()
+        time.sleep(2.5)
+        self.AI.Click_Mem()
+        time.sleep(1.5)
+        self.AI.Select_DocID(self.DocIDvalue)
+        time.sleep(1.5)
+        #self.driver.execute_script("document.body.style.zoom='80%'")
+        #time.sleep(2)
+        actions.send_keys(Keys.TAB,Keys.TAB).perform()
+        actions.key_down(Keys.LEFT_SHIFT).send_keys(Keys.TAB).key_up(Keys.LEFT_SHIFT).perform()
+        actions.key_down(Keys.LEFT_SHIFT).send_keys(Keys.TAB).key_up(Keys.LEFT_SHIFT).perform()
+        time.sleep(1)
+        actions.send_keys(Keys.ENTER).perform()
+        time.sleep(4)
+        self.logger.info ("***** Interviewee has been added successfully *****")
+        self.logger.info ("***** New DSNAP case creation has been started *****")
+        self.NDSNPC = N_DSNAPCase(self.driver)
+        self.NDSNPC.Click_MenuOptn()
+        time.sleep(2)
+        self.NDSNPC.Click_New_DSNAPC()
+        time.sleep(4)
+        self.NDSNPC.Click_DisName(self.Sdis)
+        time.sleep(2.5)
+        self.NDSNPC.Sel_DisName()
+        time.sleep(1.5)
+        self.NDSNPC.Click_IntSel()
+        time.sleep(2)
+        self.NDSNPC.Click_OptnIntSel()
+        time.sleep(2)
+        #self.driver.execute_script("document.body.style.zoom='80%'")
+        time.sleep(2)
+        actions.send_keys(Keys.TAB,Keys.TAB).perform()
+        actions.key_down(Keys.LEFT_SHIFT).send_keys(Keys.TAB).key_up(Keys.LEFT_SHIFT).perform()
+        actions.key_down(Keys.LEFT_SHIFT).send_keys(Keys.TAB).key_up(Keys.LEFT_SHIFT).perform()
+        time.sleep(1)
+        actions.send_keys(Keys.ENTER).perform()
+        time.sleep(5.5)
+        if self.driver.title.startswith("CAS"):
             assert True
-            self.logger.info ("***** MPI search has been done successfully *****")
+            self.logger.info("***** New DSNAP case has been created successfully *****")
             self.driver.close()
         else:
-            self.logger.info ("***** MPI search has not been done successfully *****")
-            self.driver.save_screenshot("C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\Screenshots\\MPISearch.png")
+            self.logger.info("***** New DSNAP case creation has failed *****")
+            self.driver.save_screenshot("C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\Screenshots\\N_DSNAPC.png")
             self.driver.close()
             assert False
-
 

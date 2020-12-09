@@ -32,7 +32,7 @@ class Test_CreateHH():
     DocIDvalue = ReadConfig.getDocId()
 
     def test_N_DSNAPC(self,setup):
-        self.logger.info("**************** Test Interviewee Creation ****************")
+        self.logger.info("**************** Test DSNAP Case Certification ****************")
         self.driver = setup
         self.driver.maximize_window()
         self.driver.get(self.url)

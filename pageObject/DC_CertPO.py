@@ -23,6 +23,10 @@ class DC_CertPO():
     chk_RRQ2_Sign_xpath = "/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[5]/div/one-record-home-flexipage2/forcegenerated-adgrollup_component___forcegenerated__flexipage_recordpage___dsnap_program_record_page_single_col___dsnap_case__c___view/forcegenerated-flexipage_dsnap_program_record_page_single_col_dsnap_case__c__view_js/record_flexipage-record-page-decorator/div[1]/slot/flexipage-record-home-single-col-template-desktop2/div/div[2]/div/slot/slot/flexipage-component2/slot/flexipage-tabset2/div/lightning-tabset/div/slot/slot/slot/flexipage-tab2[4]/slot/flexipage-component2/slot/flexipage-aura-wrapper/div/article[2]/div[2]/article/div[2]/div[2]/div[15]/div/div/div/input"
     chk_RRQ3_xpath = "//article[3]/div[2]/div[2]/div[2]/div/input"
     btn_RRSave_css = ".slds-grid_align-center > .slds-button"
+    btn_MenuOptn_xpath = "//div[@id='brandBand_2']/div/div/div/div/one-record-home-flexipage2/forcegenerated-adgrollup_component___forcegenerated__flexipage_recordpage___dsnap_program_record_page_single_col___dsnap_case__c___view/forcegenerated-flexipage_dsnap_program_record_page_single_col_dsnap_case__c__view_js/record_flexipage-record-page-decorator/div/slot/flexipage-record-home-single-col-template-desktop2/div/div/slot/slot/flexipage-component2/slot/records-lwc-highlights-panel/records-lwc-record-layout/forcegenerated-highlightspanel_dsnap_case__c___012r00000008q1iaae___compact___view___recordlayout2/force-highlights2/div/div/div[3]/div/runtime_platform_actions-actions-ribbon/ul/li[4]/lightning-button-menu/button/lightning-primitive-icon"
+    Optn_AddVer_xpath = "//div[@id='brandBand_2']/div/div/div/div/one-record-home-flexipage2/forcegenerated-adgrollup_component___forcegenerated__flexipage_recordpage___dsnap_program_record_page_single_col___dsnap_case__c___view/forcegenerated-flexipage_dsnap_program_record_page_single_col_dsnap_case__c__view_js/record_flexipage-record-page-decorator/div/slot/flexipage-record-home-single-col-template-desktop2/div/div/slot/slot/flexipage-component2/slot/records-lwc-highlights-panel/records-lwc-record-layout/forcegenerated-highlightspanel_dsnap_case__c___012r00000008q1iaae___compact___view___recordlayout2/force-highlights2/div/div/div[3]/div/runtime_platform_actions-actions-ribbon/ul/li[4]/lightning-button-menu/div/div/slot/runtime_platform_actions-action-renderer[2]/runtime_platform_actions-custom-quick-action/slot/slot/runtime_platform_actions-ribbon-menu-item/a"
+    btn_Sub_AddVer_xpath = "//button[@type='submit']"
+    Optn_Certify_xpath = "//div[@id='brandBand_2']/div/div/div/div/one-record-home-flexipage2/forcegenerated-adgrollup_component___forcegenerated__flexipage_recordpage___dsnap_program_record_page_single_col___dsnap_case__c___view/forcegenerated-flexipage_dsnap_program_record_page_single_col_dsnap_case__c__view_js/record_flexipage-record-page-decorator/div/slot/flexipage-record-home-single-col-template-desktop2/div/div/slot/slot/flexipage-component2/slot/records-lwc-highlights-panel/records-lwc-record-layout/forcegenerated-highlightspanel_dsnap_case__c___012r00000008q1iaae___compact___view___recordlayout2/force-highlights2/div/div/div[3]/div/runtime_platform_actions-actions-ribbon/ul/li[4]/lightning-button-menu/div/div/slot/runtime_platform_actions-action-renderer[4]/runtime_platform_actions-custom-quick-action/slot/slot/runtime_platform_actions-ribbon-menu-item/a/span"
 
     def __init__(self,driver):
         self.driver = driver
@@ -100,3 +104,16 @@ class DC_CertPO():
 
     def Click_RRSave(self):
         self.driver.find_element_by_css_selector(self.btn_RRSave_css).click()
+
+    def Click_MenuOptn(self):
+        self.driver.find_element_by_xpath(self.btn_MenuOptn_xpath).click()
+
+    def Click_AddVer_Optn(self):
+        self.driver.find_element_by_xpath(self.Optn_AddVer_xpath).click()
+
+    def Click_Save_AddVer(self):
+        self.driver.find_element_by_xpath(self.btn_Sub_AddVer_xpath).click()
+
+    def Click_Certify(self):
+        self.driver.find_element_by_xpath(self.Optn_Certify_xpath).click()
+

@@ -135,9 +135,9 @@ class Test_DSNAPC_Cert():
         self.CHOH.EnterSSN(self.SSN)
         time.sleep(1)
         self.CHOH.Click_Save()
-        time.sleep(5)
+        time.sleep(5.5)
         self.CHOH.ClickNewHHMem()
-        time.sleep(5)
+        time.sleep(6)
 
         for r in range(1,self.rows+1):
             self.FN= XLUtils.readData(self.path,'Regression details',r,1)

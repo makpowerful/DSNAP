@@ -113,6 +113,7 @@ class Test_DSNAPC_Cert():
         self.CHH.Click_Save()
         time.sleep(8)
         self.logger.info("***** HH has been created successfully *****")
+        self.driver.save_screenshot("C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\Screenshots\\HHCreated.png")
         self.logger.info("***** Creation of HOH *****")
         self.CHOH = CreateHOH(self.driver)
         self.CHOH.ClickNewHHMem()
@@ -223,6 +224,7 @@ class Test_DSNAPC_Cert():
         elm.send_keys(Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.TAB,Keys.ENTER)
         time.sleep(6.5)
         self.logger.info("***** New DSNAP case has been created successfully *****")
+        self.driver.save_screenshot("C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\Screenshots\\DSNAPCaseCreated.png")
         self.logger.info("***** Certification of DSNAP Case *****")
         self.logger.info("***** Inserting Voter Registration Information *****")
         self.DC_Cert = DC_CertPO(self.driver)
@@ -298,7 +300,7 @@ class Test_DSNAPC_Cert():
             self.logger.info ("***** DSNAP Case has been certified successfully *****")
             self.driver.close()
         else:
-            self.logger.info ("***** Interviewee has not been added successfully *****")
-            self.driver.save_screenshot("C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\Screenshots\\AddInterview.png")
+            self.logger.info ("***** DSNAP Case has not been certified successfully *****")
+            self.driver.save_screenshot("C:\\Users\\mkalamshabaz\\PycharmProjects\\DSNAP\\Screenshots\\CaseNotCertified.png")
             self.driver.close()
             assert False

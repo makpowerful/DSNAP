@@ -1,24 +1,24 @@
-12/09/2020 05:53:29 PM: INFO: **************** Test New DSNAP Case Creation ****************
-12/09/2020 05:53:56 PM: INFO: ***** Login has been successfully done. *****
-12/09/2020 05:54:39 PM: INFO: ***** Selected disaster and disaster site successfully. *****
-12/09/2020 05:54:51 PM: INFO: ***** Creation of HH *****
-12/09/2020 05:55:31 PM: INFO: ***** HH has been created successfully *****
-12/09/2020 05:55:31 PM: INFO: ***** Creation of HOH *****
-12/09/2020 05:56:07 PM: INFO: ***** HOH and member have been added successfully *****
-12/09/2020 05:56:07 PM: INFO: ***** Performing MPI Search for HOH *****
-12/09/2020 05:56:30 PM: INFO: ***** MPI search for HOH has been done successfully *****
-12/09/2020 05:56:34 PM: INFO: ***** Performing MPI Search for Member *****
-12/09/2020 05:57:14 PM: INFO: ***** MPI search for Member has been done successfully *****
-12/09/2020 05:57:21 PM: INFO: ***** Adding Interviewee *****
-12/09/2020 05:57:38 PM: INFO: ***** Interviewee has been added successfully *****
-12/09/2020 05:57:38 PM: INFO: ***** New DSNAP case creation has been started *****
-12/09/2020 05:58:01 PM: INFO: ***** New DSNAP case has been created successfully *****
-12/09/2020 05:58:01 PM: INFO: ***** Certification of DSNAP Case *****
-12/09/2020 05:58:01 PM: INFO: ***** Inserting Voter Registration Information *****
-12/09/2020 05:58:15 PM: INFO: ***** Voter Registration Information has been entered successfully *****
-12/09/2020 05:58:15 PM: INFO: ***** Inserting Disaster Impact Details *****
-12/09/2020 05:58:34 PM: INFO: ***** Disaster Impact Details has been entered successfully *****
-12/09/2020 05:58:34 PM: INFO: ***** Inserting Rights and Responsibilities Details *****
-12/09/2020 05:58:55 PM: INFO: ***** Rights and Responsibilities Details has been entered successfully *****
-12/09/2020 05:58:55 PM: INFO: ***** Performing Address Verification *****
-12/09/2020 05:59:17 PM: INFO: ***** DSNAP Case has been certified successfully *****
+12/10/2020 12:48:30 PM: INFO: **************** Test Regression Cycle ****************
+12/10/2020 12:48:46 PM: INFO: ***** Login has been successfully done. *****
+12/10/2020 12:49:41 PM: INFO: ***** Selected disaster and disaster site successfully. *****
+12/10/2020 12:49:51 PM: INFO: ***** Creation of HH *****
+12/10/2020 12:50:32 PM: INFO: ***** HH has been created successfully *****
+12/10/2020 12:50:32 PM: INFO: ***** Creation of HOH *****
+12/10/2020 12:51:11 PM: INFO: ***** HOH and member have been added successfully *****
+12/10/2020 12:51:11 PM: INFO: ***** Performing MPI Search for HOH *****
+12/10/2020 12:51:33 PM: INFO: ***** MPI search for HOH has been done successfully *****
+12/10/2020 12:51:39 PM: INFO: ***** Performing MPI Search for Member *****
+12/10/2020 12:52:19 PM: INFO: ***** MPI search for Member has been done successfully *****
+12/10/2020 12:52:27 PM: INFO: ***** Adding Interviewee *****
+12/10/2020 12:52:43 PM: INFO: ***** Interviewee has been added successfully *****
+12/10/2020 12:52:43 PM: INFO: ***** New DSNAP case creation has been started *****
+12/10/2020 12:53:06 PM: INFO: ***** New DSNAP case has been created successfully *****
+12/10/2020 12:53:06 PM: INFO: ***** Certification of DSNAP Case *****
+12/10/2020 12:53:06 PM: INFO: ***** Inserting Voter Registration Information *****
+12/10/2020 12:53:20 PM: INFO: ***** Voter Registration Information has been entered successfully *****
+12/10/2020 12:53:20 PM: INFO: ***** Inserting Disaster Impact Details *****
+12/10/2020 12:53:39 PM: INFO: ***** Disaster Impact Details has been entered successfully *****
+12/10/2020 12:53:39 PM: INFO: ***** Inserting Rights and Responsibilities Details *****
+12/10/2020 12:54:00 PM: INFO: ***** Rights and Responsibilities Details has been entered successfully *****
+12/10/2020 12:54:00 PM: INFO: ***** Performing Address Verification *****
+12/10/2020 12:54:25 PM: INFO: ***** Interviewee has not been added successfully *****
